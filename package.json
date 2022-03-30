@@ -1,0 +1,22 @@
+{
+  "name": "p3_paris_florent",
+  "version": "1.0.0",
+  "description": "Projet 3 oppenclassroom Ohmyfood! une entreprise de commande de repas en ligne.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitgithttps://github.com/flowcodec/ohmyfood.git"
+  },
+  "author": "Paris Florent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowcodec/ohmyfood/issues"
+  },
+  "homepage": "https://github.com/flowcodec/ohmyfood#readme",
+  "devDependencies": {
+    "sass": "^1.49.9"
+  }
+}
