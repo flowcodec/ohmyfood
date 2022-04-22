@@ -11,9 +11,10 @@
 body {
   margin: 0px;
   font-family: "Roboto", sans-serif;
+  /* page de chargement*/
 }
 body .loading {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: #000000;
