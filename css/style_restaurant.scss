@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');   
-
+/* les mixins*/
 @mixin shadow {
     box-shadow: 2px 1px 8px -3px #000000;
   } 
@@ -10,6 +10,17 @@
   background-image: linear-gradient(#FF79DA,#9356DC);
 }
 
+@keyframes launch {
+  0%{
+    transform: translateY(-50%);
+    opacity:0;
+  }
+  100%{
+    transition: translateY(0%);
+    opacity: 1;
+  }
+}
+/* les classes*/
 $primary:#9356DC;
 $secondary:#FF79DA;
 $tertiary:#99E2D0;
@@ -17,20 +28,32 @@ $tertiary:#99E2D0;
 /*générales*/
 *,::before,
 ::after{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  }
 
+/*annimation keyframes*/
+@keyframes loading_spiner {
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
-@media screen and (max-width: 762px){
 
+/*Entête de la page*/
 header {
   display: flex;
   align-items:center;
-
+  background-color: white;
+  width: 100%;
 
 .placement_t {
   display: flex;
@@ -53,13 +76,24 @@ header {
   }
 }
 
+/*image*/
+.image {
+  display: flex;
+  justify-content: center;
+}
+img { 
+  object-fit:fill;
+  width: 50%;
+}
+
+/*Partie Entête du mains avec un coeur animé*/
 main {
   background-color: #d7d7d7;
   border-radius: 25px 25px 0px 0px;
   padding: 20px 10px;
-  margin-top: -40px;
+  margin: -40px 20px 0px 20px;
   position: relative;
-
+  z-index: 3;
 
 & .agencement_titre{
   display:flex;
@@ -72,12 +106,45 @@ main {
     font-family: 'Shrikhand', Cursive;
     font-size: 30px;
     }
-    & i {
-    font-size: 30px;
+/*annimation coeur*/
+    & .coeur {
+      font-size: 30px;
+
     }
+    & .far {
+      position: relative;
+      margin-right: -38px;
+    }
+    & .fas {
+      opacity: 0;
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(#FF79DA,#9356DC);
+      transition: transform 450ms, background-image 300ms 150ms;
+      }
+    & .fas:hover {
+      opacity: 1;
+      transform: scale(1.2);
+      }
+    & .far :hover {
+      opacity: 0;
+      cursor: pointer;
+      }
+}
+/* organisaion par block*/
+.block_section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 section {
+  animation-name: launch;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  width: 30%;
   & h3 {
     padding-top: 30px;
   }
@@ -86,38 +153,72 @@ section {
     width: 40px;
     height: 3px;
   }
-  & .prix-carte {
-    font-weight: 500;
-  }
-  & .carte {
+
+/* cartes définissant chaques plats, entrées et desserts ainsi que leur prix*/
+.carte {
     background-color: white;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items:center;
     width: 100%;
-    padding: 15px 15px;
-    margin: 15px 0px;
+    height: 80px;
+    padding: 0px 15px;
+    margin: 15px -60px 15px 0px;
     border-radius: 15px;
     @include shadow;
+    overflow: hidden;
     text-overflow: ellipsis; 
-    }
-      & h4{
-        font-weight: 600 ;
-        padding-bottom: 10px;
-      }
-      & p {
-        color: gray;
-      }
-      & .annimation_verte{
-        background-color: $tertiary;
-        justify-content: end;
-        align-items: center;
-        width: 20%;
-        
-
-      }
-
   }
+
+  & .texte_carte{
+    flex-wrap: nowrap;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  & h4{
+    font-weight: 600 ;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+  }
+  & p {
+    color: gray;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+/*partie annimation check*/
+  & .block_annimation_verte{
+    display: flex;
+    align-items: center;
+    margin-right: -95px;
+  }
+  & .block_check{
+    background-color: $tertiary;
+  }
+    & i {
+      font-size:40px;
+      padding: 20px;
+      color: white;
+      rotate: 90deg;
+      transition: all 1s ease;
+      color:white;
+    }
+  & .prix-carte {
+    font-weight: 500;
+    padding: 15px;
+  }
+}
+.carte:hover{
+  cursor:pointer;
+    & i{
+      margin-right: 80px;
+      transform: rotate(-90deg);
+      text-overflow: ellipsis;
+    }
+}
+/*Bouton commande*/
 .agencement_button{
   display: flex;
   justify-content: center;
@@ -139,13 +240,14 @@ button:hover {
     opacity: 0.8;
     box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.75);
 }
-}
 
+/*Partie Footer*/
 footer{
   color: whitesmoke;
   background-color:rgb(39, 35, 35);
   padding-left: 20px;
   padding-bottom: 20px;
+  z-index: 3;
   & h5 {
       padding: 20px 0px;
       font-size: 18px;
@@ -169,4 +271,24 @@ footer{
       color: whitesmoke;
       padding-bottom: 20px;
   }
+}
+
+@media screen and (max-width: 800px) {
+img {
+    width: 100%;
+  }
+ main{
+   margin: -40px 0px 0px 0px;
+  & section {
+    width: 100%;
+  }
+  & .block_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    & .carte{
+      width: 100%;
+    }
+  }
+}
 }

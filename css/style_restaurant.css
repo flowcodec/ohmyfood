@@ -2,6 +2,28 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+/* les mixins*/
+@-webkit-keyframes launch {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transition: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes launch {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transition: translateY(0%);
+    opacity: 1;
+  }
+}
+/* les classes*/
 /*générales*/
 *, ::before,
 ::after {
@@ -13,124 +35,232 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-@media screen and (max-width: 762px) {
-  header {
-    display: flex;
-    align-items: center;
+/*annimation keyframes*/
+@-webkit-keyframes loading_spiner {
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
-  header .placement_t {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  header h1 {
-    font-size: 30px;
-    font-family: "Shrikhand", Cursive;
-    padding: 5px;
-  }
-  header .placement_i {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 20px;
-  }
-  header a {
-    text-decoration: none;
-    color: #000000;
-  }
-
-  main {
-    background-color: #d7d7d7;
-    border-radius: 25px 25px 0px 0px;
-    padding: 20px 10px;
-    margin-top: -40px;
-    position: relative;
-  }
-  main .agencement_titre {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0px 20px;
-    border-radius: 25px 25px 0px 0px;
-  }
-  main h2 {
-    font-family: "Shrikhand", Cursive;
-    font-size: 30px;
-  }
-  main i {
-    font-size: 30px;
-  }
-
-  section h3 {
-    padding-top: 30px;
-  }
-  section .ligne_verte {
-    background-color: #99E2D0;
-    width: 40px;
-    height: 3px;
-  }
-  section .prix-carte {
-    font-weight: 500;
-  }
-  section .carte {
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    padding: 15px 15px;
-    margin: 15px 0px;
-    border-radius: 15px;
-    box-shadow: 2px 1px 8px -3px #000000;
-  }
-  section h4 {
-    font-weight: 600;
-    padding-bottom: 10px;
-  }
-  section p {
-    color: gray;
-  }
-  section .annimation_verte {
-    background-color: #99E2D0;
-    justify-content: end;
-    align-items: center;
-    width: 20%;
+  100% {
+    transform: scale(0);
     opacity: 0;
-    position: relative;
-  }
-  section .annimation_verte i {
-    -webkit-text-decoration: #99E2D0;
-            text-decoration: #99E2D0;
-  }
-
-  .agencement_button {
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
-    padding-bottom: 70px;
-  }
-
-  button {
-    color: white;
-    font-weight: 300;
-    font-size: 16px;
-    padding: 15px 30px;
-    background-image: linear-gradient(#FF79DA, #9356DC);
-    border: none;
-    border-radius: 40px;
-    box-shadow: 2px 1px 8px -3px #000000;
-    transition: transform 400ms;
-  }
-
-  button:hover {
-    opacity: 0.8;
-    box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.75);
   }
 }
+@keyframes loading_spiner {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+/*Entête de la page*/
+header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+}
+header .placement_t {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+header h1 {
+  font-size: 30px;
+  font-family: "Shrikhand", Cursive;
+  padding: 5px;
+}
+header .placement_i {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/*image*/
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 50%;
+}
+
+/*Partie Entête du mains avec un coeur animé*/
+main {
+  background-color: #d7d7d7;
+  border-radius: 25px 25px 0px 0px;
+  padding: 20px 10px;
+  margin: -40px 20px 0px 20px;
+  position: relative;
+  z-index: 3;
+  /*annimation coeur*/
+}
+main .agencement_titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0px 20px;
+  border-radius: 25px 25px 0px 0px;
+}
+main h2 {
+  font-family: "Shrikhand", Cursive;
+  font-size: 30px;
+}
+main .coeur {
+  font-size: 30px;
+}
+main .far {
+  position: relative;
+  margin-right: -38px;
+}
+main .fas {
+  opacity: 0;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  transition: transform 450ms, background-image 300ms 150ms;
+}
+main .fas:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+main .far :hover {
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* organisaion par block*/
+.block_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+section {
+  -webkit-animation-name: launch;
+          animation-name: launch;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  width: 30%;
+  /* cartes définissant chaques plats, entrées et desserts ainsi que leur prix*/
+  /*partie annimation check*/
+}
+section h3 {
+  padding-top: 30px;
+}
+section .ligne_verte {
+  background-color: #99E2D0;
+  width: 40px;
+  height: 3px;
+}
+section .carte {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0px 15px;
+  margin: 15px -60px 15px 0px;
+  border-radius: 15px;
+  box-shadow: 2px 1px 8px -3px #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section .texte_carte {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+section h4 {
+  font-weight: 600;
+  padding-bottom: 10px;
+  text-overflow: ellipsis;
+}
+section p {
+  color: gray;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+section .block_annimation_verte {
+  display: flex;
+  align-items: center;
+  margin-right: -95px;
+}
+section .block_check {
+  background-color: #99E2D0;
+}
+section i {
+  font-size: 40px;
+  padding: 20px;
+  color: white;
+  rotate: 90deg;
+  transition: all 1s ease;
+  color: white;
+}
+section .prix-carte {
+  font-weight: 500;
+  padding: 15px;
+}
+
+.carte:hover {
+  cursor: pointer;
+}
+.carte:hover i {
+  margin-right: 80px;
+  transform: rotate(-90deg);
+  text-overflow: ellipsis;
+}
+
+/*Bouton commande*/
+.agencement_button {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+button {
+  color: white;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 15px 30px;
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  border: none;
+  border-radius: 40px;
+  box-shadow: 2px 1px 8px -3px #000000;
+  transition: transform 400ms;
+}
+
+button:hover {
+  opacity: 0.8;
+  box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.75);
+}
+
+/*Partie Footer*/
 footer {
   color: whitesmoke;
-  background-color: #272323;
+  background-color: rgb(39, 35, 35);
   padding-left: 20px;
   padding-bottom: 20px;
+  z-index: 3;
 }
 footer h5 {
   padding: 20px 0px;
@@ -153,4 +283,25 @@ footer a {
   text-decoration: none;
   color: whitesmoke;
   padding-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  img {
+    width: 100%;
+  }
+
+  main {
+    margin: -40px 0px 0px 0px;
+  }
+  main section {
+    width: 100%;
+  }
+  main .block_section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  main .block_section .carte {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style_restaurant.css.map */
