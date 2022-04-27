@@ -23,9 +23,16 @@ $tertiary:#99E2D0;
     box-sizing: border-box;
 }
 
+h3 {  
+    padding-bottom: 25px;
+    font-size: 27px;
+    font-weight: bold;
+ }
+
 body {
     margin: 0px;
     font-family: 'Roboto', sans-serif;
+
 /* page de chargement*/
     & .loading {
         position: fixed;
@@ -42,6 +49,7 @@ body {
         animation-delay: 2s;
       } 
       }
+      
     @keyframes loading_spiner {
       0%{
         transform: scale(1);
@@ -85,12 +93,6 @@ header {
         text-align: center;
         padding-top: 25px;
         padding-bottom: 50px;
-        
-    & h2 {  
-        padding-bottom: 25px;
-        font-size: 27px;
-        font-weight: bold;
-    }
 
     & p {
         font-size: 20px;
@@ -161,8 +163,9 @@ nav {
 section{
     background-color: #d7d7d7;
     padding-bottom: 40px;
+    padding-top: 40px;
 
-h2 + h3{
+h3{
     padding: 40px 10px 20px 10px;
     font-size: 27px;
     font-weight: bold;
@@ -229,12 +232,12 @@ h2 + h3{
 
 /*annimation coeur*/           
             & .coeur {
-                    font-size: 25px;
+                    font-size: 27px;
                     margin-right: 25px;
                     }
                 & .far {
                     position: relative;
-                    margin-right: -31px;
+                    margin-right: -34px;
                 }
                 & .fas {
                     opacity: 0;
@@ -260,6 +263,7 @@ footer{
     color: whitesmoke;
     background-color:rgb(39, 35, 35);
     padding-left: 20px;
+    padding-bottom: 20px;
     & h5 {
         padding: 20px 0px;
         font-size: 18px;
@@ -291,18 +295,24 @@ footer{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
+        width: 100%;    
         & .carte_fonctionnement {
-            width: 95%;
+            width: 95%; 
+        }   
+    }   
+ sectoin {
+     position: absolute;
+ }
+            & .agencement_des_cartes_restaurant{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+                & .carte_restaurant_nouveau{
+                width:95%;
+                margin: 10px 10px;
+                display: block;
+               }
+            }
         }
     }
-    & .agencement_des_cartes_restaurant{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        & .carte_restaurant_nouveau{
-            width:95%;
-        }
-    }
-    }
-}
