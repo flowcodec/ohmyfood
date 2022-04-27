@@ -90,8 +90,8 @@ header a {
 }
 
 img {
-  -o-object-fit: fill;
-     object-fit: fill;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 50%;
   height: 500px;
 }
@@ -192,6 +192,8 @@ section .texte_carte {
 section h4 {
   font-weight: 600;
   padding-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 section p {
