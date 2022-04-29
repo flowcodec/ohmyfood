@@ -3,26 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 /* les mixins*/
-@-webkit-keyframes launch {
-  0% {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  100% {
-    transition: translateY(0%);
-    opacity: 1;
-  }
-}
-@keyframes launch {
-  0% {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  100% {
-    transition: translateY(0%);
-    opacity: 1;
-  }
-}
 /* les classes*/
 /*générales*/
 *, ::before,
@@ -54,6 +34,26 @@ body {
   100% {
     transform: scale(0);
     opacity: 0;
+  }
+}
+@-webkit-keyframes launch {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transition: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes launch {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transition: translateY(0%);
+    opacity: 1;
   }
 }
 /*Entête de la page*/

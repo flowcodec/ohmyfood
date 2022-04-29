@@ -10,16 +10,6 @@
   background-image: linear-gradient(#FF79DA,#9356DC);
 }
 
-@keyframes launch {
-  0%{
-    transform: translateY(-50%);
-    opacity:0;
-  }
-  100%{
-    transition: translateY(0%);
-    opacity: 1;
-  }
-}
 /* les classes*/
 $primary:#9356DC;
 $secondary:#FF79DA;
@@ -34,7 +24,7 @@ $tertiary:#99E2D0;
 body {
   margin: 0px;
   font-family: 'Roboto', sans-serif;
-  }
+}
 
 /*annimation keyframes*/
 @keyframes loading_spiner {
@@ -48,6 +38,16 @@ body {
   }
 }
 
+@keyframes launch {
+  0%{
+    transform: translateY(-50%);
+    opacity:0;
+  }
+  100%{
+    transition: translateY(0%);
+    opacity: 1;
+  }
+}
 /*Entête de la page*/
 header {
   display: flex;
