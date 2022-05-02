@@ -2,6 +2,7 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+/*Les class*/
 /*générales*/
 *, ::before,
 ::after {
@@ -89,6 +90,7 @@ header {
   text-align: center;
   overflow: visible;
   color: #3d3c3c;
+  font-weight: 500;
 }
 .city input ::-moz-placeholder {
   color: #3d3c3c;
