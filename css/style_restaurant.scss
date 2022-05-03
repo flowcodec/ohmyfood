@@ -205,9 +205,10 @@ section {
       font-size:40px;
       padding: 20px;
       color: white;
-      rotate: 90deg;
       transition: all 1s ease;
+      display: inline-block;
       color:white;
+      rotate: 0deg;
     }
   & .prix-carte {
     font-weight: 500;
@@ -218,8 +219,9 @@ section {
   cursor:pointer;
     & i{
       margin-right: 80px;
-      transform: rotate(-90deg);
       text-overflow: ellipsis;
+      display: inline-block;
+      transform: rotate(-360deg);
     }
 }
 /*Bouton commande*/
